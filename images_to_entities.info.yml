@@ -1,0 +1,6 @@
+name: Images To Entities
+description: Provide opportunity to create entities from images
+package: Custom
+
+type: module
+core: 8.x

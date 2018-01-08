@@ -1,0 +1,39 @@
+<h1>{{ "List of rules convert Images to Entities"|t }}</h1>
+<div class="content">
+    <div class="buttons">
+        <a href="#" class="button">Create</a>
+    </div>
+
+    <div class="list">
+
+        {{ kint('s') }}
+        {% if list_items is empty %}
+            <h2>Sorry, you don't have any rules</h2>
+        {% else %}
+            <table>
+                <tr>
+                    <th>{{ "ID"|t }}</th>
+                    <th>{{ "Name of rule"|t }}</th>
+                    <th>{{ "Entity type"|t }}</th>
+                    <th>{{ "Bundle type"|t }}</th>
+                    <th>{{ "Actions"|t }}</th>
+                </tr>
+                {% for item in list_items %}
+                    <tr>
+                        <td>{{ item['id'] }}</td>
+                        <td>{{ item['name'] }}</td>
+                        <td>{{ item['entity_type'] }}</td>
+                        <td>{{ item['entity_bundle'] }}</td>
+                        <td>
+                            <a href="#" class="button button--primary">Run</a>
+                            <a href="#" class="button">Edit</a>
+                            <a href="#" class="button">Config</a>
+                            <a href="#" class="button button--danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+
+    </div>
+</div>

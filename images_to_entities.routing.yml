@@ -1,0 +1,6 @@
+ite.rules:
+  path: '/admin/ite/rules'
+  defaults:
+    _controller: '\Drupal\images_to_entities\Controller\RuleController::index'
+  requirements:
+    _permission: 'administer nodes'

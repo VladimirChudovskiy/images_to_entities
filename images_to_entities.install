@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function images_to_entities_schema() {
+    $schema['ite_rules'] = [
+        'description' => 'All the rules for convert images to entities',
+        'fields' => [
+            'id' => [
+                'description' => 'The rule id',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'name' => [
+                'description' => 'The identifier of the data.',
+                'type' => 'varchar_ascii',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ],
+            'entity_type' => [
+                'description' => 'The identifier of the entity type.',
+                'type' => 'varchar_ascii',
+                'length' => 128,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+            'entity_bundle' => [
+                'description' => 'The identifier of the entity bundle.',
+                'type' => 'varchar_ascii',
+                'length' => 128,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+        ],
+        'primary key' => ['id'],
+    ];
+    $schema['ite_field_code_matches'] = [
+        'description' => 'All the matches between field name in entity bundle and code',
+        'fields' => [
+            'id' => [
+                'description' => 'The code match id.',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'rule_id' => [
+                'description' => 'The rule id.',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'name' => [
+                'description' => 'The identifier of the data.',
+                'type' => 'varchar_ascii',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ],
+            'field_name' => [
+                'description' => 'The identifier of the field name.',
+                'type' => 'varchar_ascii',
+                'length' => 128,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+            'field_type' => [
+                'description' => 'The identifier of the field type.',
+                'type' => 'varchar_ascii',
+                'length' => 128,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+            'code' => [
+                'description' => 'The code which eject part of image name.',
+                'type' => 'blob',
+                'not null' => FALSE,
+                'size' => 'big',
+            ],
+        ],
+        'primary key' => ['id'],
+    ];
+    $schema['ite_item_matches'] = [
+        'description' => 'Item matches.',
+        'fields' => [
+            'id' => [
+                'description' => 'The item match id.',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'field_code_match_id' => [
+                'description' => 'The field code match id.',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'tid' => [
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'term_name' => [
+                'description' => 'The taxonomy term name.',
+                'type' => 'varchar_ascii',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+            'string_match' => [
+                'description' => 'The string match (usually it is letter).',
+                'type' => 'varchar_ascii',
+                'length' => 128,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+        ],
+        'primary key' => ['id'],
+    ];
+
+    return $schema;
+}

@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function images_to_entities_theme($existing, $type, $theme, $path) {
+    return [
+        'ite_rules' => [
+            'variables' => [
+                'list_items' => null
+            ]
+        ],
+    ];
+}
