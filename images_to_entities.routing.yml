@@ -4,3 +4,110 @@ ite.rules:
     _controller: '\Drupal\images_to_entities\Controller\RuleController::index'
   requirements:
     _permission: 'administer nodes'
+
+
+ite.rules_create:
+  path: '/admin/ite/rules/create'
+  defaults:
+    _form: '\Drupal\images_to_entities\Form\RuleCreate'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.rules_run:
+  path: '/admin/ite/rules/run/{rid}'
+  defaults:
+    _form: '\Drupal\images_to_entities\Form\RuleRun'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.rules_edit:
+  path: '/admin/ite/rules/edit/{rid}'
+  defaults:
+    _form: '\Drupal\images_to_entities\Form\RuleEdit'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.rules_delete:
+  path: '/admin/ite/rules/delete/{rid}'
+  defaults:
+    _controller: '\Drupal\images_to_entities\Controller\RuleController::delete'
+  requirements:
+    _permission: 'administer nodes'
+
+
+
+ite.rules_config:
+  path: '/admin/ite/rules/{rid}/config'
+  defaults:
+    _controller: '\Drupal\images_to_entities\Controller\RuleController::config'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.rules_config.fc_match_create:
+  path: '/admin/ite/rules/{rid}/config/create_fc_match'
+  defaults:
+    _form: '\Drupal\images_to_entities\Form\FCMatchCreate'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.rules_config.fc_match_edit:
+  path: '/admin/ite/rules/{rid}/config/edit/{fcm_id}'
+  defaults:
+    _form: '\Drupal\images_to_entities\Form\FCMatchEdit'
+  requirements:
+    _permission: 'administer nodes'
+
+
+ite.rules_config.fc_match_delete:
+  path: '/admin/ite/rules/{rid}/config/delete/{fcm_id}'
+  defaults:
+    _controller: '\Drupal\images_to_entities\Controller\RuleController::fcmDelete'
+  requirements:
+    _permission: 'administer nodes'
+
+
+
+ite.rules_config.fc_match_config:
+  path: '/admin/ite/rules/{rid}/config/{fcm_id}/config'
+  defaults:
+    _controller: '\Drupal\images_to_entities\Controller\RuleController::fcmConfig'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.rules_config.fc_match.item_create:
+  path: '/admin/ite/rules/{rid}/config/{fcm_id}/create'
+  defaults:
+    _form: '\Drupal\images_to_entities\Form\ItemCreate'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.rules_config.fc_match.item_delete:
+  path: '/admin/ite/rules/{rid}/config/{fcm_id}/delete/{iid}'
+  defaults:
+    _controller: '\Drupal\images_to_entities\Controller\RuleController::itemDelete'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.rules_config.fc_match.item_create:
+  path: '/admin/ite/rules/{rid}/config/{fcm_id}/edit/{iid}'
+  defaults:
+    _form: '\Drupal\images_to_entities\Form\ItemEdit'
+  requirements:
+    _permission: 'administer nodes'
+
+
+
+
+ite.all_images:
+  path: '/ite/all-images'
+  defaults:
+    _controller: '\Drupal\images_to_entities\Controller\ImageController::getAll'
+  requirements:
+    _permission: 'administer nodes'
+
+ite.item_to_entity:
+  path: '/ite/image-to-entity/{id}'
+  defaults:
+    _controller: '\Drupal\images_to_entities\Controller\ImageController::imageToEntity'
+  requirements:
+    _permission: 'administer nodes'

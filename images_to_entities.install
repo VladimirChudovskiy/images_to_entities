@@ -4,15 +4,76 @@
  * Implements hook_schema().
  */
 function images_to_entities_schema() {
+    $schema['ite_images'] = [
+        'description' => 'the images',
+        'fields' => [
+            'id' => [
+                'description' => 'The rule id',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+                //'default' => 0,
+            ],
+            'rule_id' => [
+                'description' => 'The rule id.',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'fid' => [
+                'description' => 'The file id.',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+            ],
+            'filename' => [
+                'description' => 'filename.',
+                'type' => 'varchar_ascii',
+                'length' => 128,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+            'uri' => [
+                'description' => 'Uri.',
+                'type' => 'varchar_ascii',
+                'length' => 255,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+            'alt' => [
+                'description' => 'Alt',
+                'type' => 'varchar_ascii',
+                'length' => 128,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+            'title' => [
+                'description' => 'Title',
+                'type' => 'varchar_ascii',
+                'length' => 128,
+                'not null' => FALSE,
+                'default' => '',
+            ],
+        ],
+        'primary key' => ['id'],
+    ];
+
     $schema['ite_rules'] = [
         'description' => 'All the rules for convert images to entities',
         'fields' => [
             'id' => [
                 'description' => 'The rule id',
-                'type' => 'int',
+                'type' => 'serial',
                 'unsigned' => TRUE,
                 'not null' => TRUE,
-                'default' => 0,
+                //'default' => 0,
+            ],
+            'name' => [
+                'description' => 'The identifier of the data.',
+                'type' => 'varchar_ascii',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
             ],
             'name' => [
                 'description' => 'The identifier of the data.',
@@ -43,10 +104,10 @@ function images_to_entities_schema() {
         'fields' => [
             'id' => [
                 'description' => 'The code match id.',
-                'type' => 'int',
+                'type' => 'serial',
                 'unsigned' => TRUE,
                 'not null' => TRUE,
-                'default' => 0,
+                //'default' => 0,
             ],
             'rule_id' => [
                 'description' => 'The rule id.',
@@ -89,10 +150,10 @@ function images_to_entities_schema() {
         'fields' => [
             'id' => [
                 'description' => 'The item match id.',
-                'type' => 'int',
+                'type' => 'serial',
                 'unsigned' => TRUE,
                 'not null' => TRUE,
-                'default' => 0,
+                //'default' => 0,
             ],
             'field_code_match_id' => [
                 'description' => 'The field code match id.',

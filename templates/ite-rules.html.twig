@@ -1,14 +1,12 @@
 <h1>{{ "List of rules convert Images to Entities"|t }}</h1>
 <div class="content">
     <div class="buttons">
-        <a href="#" class="button">Create</a>
+        <a href="/admin/ite/rules/create" class="button">{{ "Create"|t }}</a>
     </div>
 
     <div class="list">
-
-        {{ kint('s') }}
         {% if list_items is empty %}
-            <h2>Sorry, you don't have any rules</h2>
+            <h2>{{ "Sorry, you don't have any rules"|t }}</h2>
         {% else %}
             <table>
                 <tr>
@@ -20,15 +18,15 @@
                 </tr>
                 {% for item in list_items %}
                     <tr>
-                        <td>{{ item['id'] }}</td>
-                        <td>{{ item['name'] }}</td>
-                        <td>{{ item['entity_type'] }}</td>
-                        <td>{{ item['entity_bundle'] }}</td>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.entity_type }}</td>
+                        <td>{{ item.entity_bundle }}</td>
                         <td>
-                            <a href="#" class="button button--primary">Run</a>
-                            <a href="#" class="button">Edit</a>
-                            <a href="#" class="button">Config</a>
-                            <a href="#" class="button button--danger">Delete</a>
+                            <a href="/admin/ite/rules/run/{{ item.id }}" class="button button--primary">{{ "Run"|t }}</a>
+                            <a href="/admin/ite/rules/edit/{{ item.id }}" class="button">{{ "Edit"|t }}</a>
+                            <a href="/admin/ite/rules/{{ item.id }}/config" class="button">{{ "Config"|t }}</a>
+                            <a href="/admin/ite/rules/delete/{{ item.id }}" class="button button--danger">{{ "Delete"|t}}</a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -5,10 +5,63 @@
  */
 function images_to_entities_theme($existing, $type, $theme, $path) {
     return [
+        'ite_task_do' => [
+            'variables' => [
+                'list_items' => null
+            ]
+        ],
         'ite_rules' => [
             'variables' => [
                 'list_items' => null
             ]
         ],
+        'ite_rule_config' => [
+            'variables' => [
+                'rule' => null,
+                'fc_match_items' => null,
+            ]
+        ],
+        'ite_fcm_config' => [
+            'variables' => [
+                'rule' => null,
+                'fc_match' => null,
+                'item_matches' => null,
+            ]
+        ],
     ];
 }
+
+function images_to_entities_element_info_alter(array &$types) {
+    $types['table']['#attached']['library'][] = 'images_to_entities/images_to_entities';
+}
+
+
+
+function ite_get_filename($item){
+    $parts = explode('.', $item);
+    return $parts[0];
+}
+
+function ite_to_lower($item){
+    return strtolower($item);
+}
+
+function ite_get_first_part($item){
+    $arr = explode('.', $item);
+    $parts = explode('_', $arr[0]);
+    return $parts[0];
+}
+
+function ite_get_second_part($item){
+    $arr = explode('.', $item);
+    $parts = explode('_', $arr[0]);
+    return $parts[1];
+}
+function ite_get_third_part($item){
+    $arr = explode('.', $item);
+    $parts = explode('_', $arr[0]);
+    return $parts[2];
+}
+
+
+

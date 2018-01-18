@@ -1,0 +1,9 @@
+images_to_entities:
+  version: 1.x
+  css:
+    theme:
+      css/ite.css: {}
+  js:
+    js/ite.js: {}
+  dependencies:
+      - core/jquery

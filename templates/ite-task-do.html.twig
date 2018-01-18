@@ -1,0 +1,13 @@
+{{ attach_library('images_to_entities/images_to_entities') }}
+
+<div class="progress" data-drupal-progress>
+    {% if label %}
+        <div class="progress__label">{{ field_label }}</div>
+    {% endif %}
+    <div class="progress__track">
+        <div class="progress__bar" style="width: 1%"></div>
+    </div>
+    <div class="progress__percentage">1%</div>
+    <div class="progress__description">{{ body }}</div>
+</div>
+<div id="imagesToEntitiesDo" class="not-finish"></div>
