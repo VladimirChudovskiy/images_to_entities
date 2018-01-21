@@ -26,15 +26,24 @@ class ImageController extends ControllerBase {
         $image_repo = new Image();
         $item = $image_repo->find($id);
 
-        $result = $this->doAllStaff($item);
+        $rule_repo = new Rule();
+        $rules = $rule_repo->getAll();
+        foreach ($rules as $rule){
+            $rule_fit = eval($rule->code);
+            if($rule_fit){
+                $result = $this->doAllStaff($item, $rule->id);
+            }
+        }
+
+
         $image_repo->delete($id);
 
         return new JsonResponse($result);
     }
 
-    protected function doAllStaff($item){
+    protected function doAllStaff($item, $rid){
         $rule_repo = new Rule();
-        $rule = $rule_repo->find($item['rule_id']);
+        $rule = $rule_repo->find($rid);
 
         $fcm_repo = new FieldCodeMatch();
         $fcms = $fcm_repo->getAllByRuleId($rule['id']);

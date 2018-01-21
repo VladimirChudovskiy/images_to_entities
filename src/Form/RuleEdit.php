@@ -42,6 +42,11 @@ class RuleEdit extends FormBase {
             '#title' => t('Name'),
             '#default_value' => $rule['name']
         ];
+        $form['code'] = [
+            '#type' => 'textarea',
+            '#title' => t('Code'),
+            '#default_value' => $rule['code']
+        ];
 
         $form['entity_bundle'] = [
             '#type' => 'select',
@@ -86,6 +91,7 @@ class RuleEdit extends FormBase {
 
         $data = [
             'name' => $form_state->getValue('name'),
+            'code' => $form_state->getValue('code'),
             'entity_type' => $this->getEntityNameByBundleName($bundle_name),
             'entity_bundle' => $form_state->getValue('entity_bundle'),
         ];

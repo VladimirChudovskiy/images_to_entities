@@ -34,6 +34,10 @@ class RuleCreate extends FormBase {
             '#type' => 'textfield',
             '#title' => t('Name'),
         ];
+        $form['code'] = [
+            '#type' => 'textarea',
+            '#title' => t('Code'),
+        ];
 
         $form['entity_bundle'] = [
             '#type' => 'select',
@@ -75,6 +79,7 @@ class RuleCreate extends FormBase {
 
         $data = [
             'name' => $form_state->getValue('name'),
+            'code' => $form_state->getValue('code'),
             'entity_type' => $this->getEntityNameByBundleName($bundle_name),
             'entity_bundle' => $form_state->getValue('entity_bundle'),
         ];

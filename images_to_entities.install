@@ -75,12 +75,11 @@ function images_to_entities_schema() {
                 'not null' => TRUE,
                 'default' => '',
             ],
-            'name' => [
-                'description' => 'The identifier of the data.',
-                'type' => 'varchar_ascii',
-                'length' => 255,
-                'not null' => TRUE,
-                'default' => '',
+            'code' => [
+                'description' => 'The code which eject part of image name.',
+                'type' => 'blob',
+                'not null' => FALSE,
+                'size' => 'big',
             ],
             'entity_type' => [
                 'description' => 'The identifier of the entity type.',
